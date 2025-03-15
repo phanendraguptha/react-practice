@@ -1,12 +1,14 @@
 import "./App.css";
 import FileQuestion from "./patternsExamples/FileQuestion";
 import UseEffect from "./hooksExamples/UseEffect";
+import Memo from "./Memo/Memo";
 
 function App() {
   return (
     <>
-      <FileQuestion />
+      {/* <FileQuestion /> */}
       {/* <UseEffect /> */}
+      <Memo />
     </>
   );
 }
