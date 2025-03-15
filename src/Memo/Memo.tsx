@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+// 📄 Read Docs
+// Read memo - https://react.dev/reference/react/memo
+
 const MainComponent = () => {
   const [count, setCount] = useState(0);
   const [todos, _] = useState(["groceries", "cleaning"]);

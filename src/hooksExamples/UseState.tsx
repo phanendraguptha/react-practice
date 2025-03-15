@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+// 📄 Read Docs
+// lazy state initialization - https://kentcdodds.com/blog/use-state-lazy-initialization-and-function-updates
+// Read useState caveats - https://react.dev/reference/react/useState#setstate-caveats
+
 const UseState = () => {
   const [count, setCount] = useState(0);
 
@@ -14,7 +18,6 @@ const UseState = () => {
     // React batches these updates, so both run in a single render cycle.
     setCount((prevCount) => prevCount + 1);
     setCount((prevCount) => prevCount + 1);
-    // Read the caveats here - https://react.dev/reference/react/useState#setstate-caveats
   };
 
   const decrement = () => setCount(count - 1);

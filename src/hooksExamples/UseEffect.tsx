@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+// 📄 Read Docs
+// useEffect - https://react.dev/reference/react/useEffect
+
 const MainComponent = () => {
   const [showComponent, setShowComponent] = useState(false);
 
@@ -43,6 +46,7 @@ const UseEffect = () => {
     };
     fetchData();
 
+    // cleanup function
     return () => {
       controller.abort(); //comment to see the diff in network
     };
