@@ -4,7 +4,7 @@ This repository is dedicated to deepening the understanding of React concepts th
 
 ### Heads Up
 
-This project is set up with Vite and Tailwind. The focus is not on fancy styles but on understanding React concepts.
+This project is set up with Vite, Tailwind and Typescript. The focus is not on fancy styles but on understanding React concepts.
 
 ### Code Structure
 
