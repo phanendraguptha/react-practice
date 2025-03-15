@@ -5,8 +5,8 @@ import UseEffect from "./hooksExamples/UseEffect";
 function App() {
   return (
     <>
-      {/* <FileQuestion /> */}
-      <UseEffect />
+      <FileQuestion />
+      {/* <UseEffect /> */}
     </>
   );
 }

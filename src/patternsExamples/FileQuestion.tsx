@@ -1,4 +1,4 @@
-import { Folder } from "lucide-react";
+import { Folder, File } from "lucide-react";
 import React, { useState } from "react";
 
 type Item = {
@@ -59,10 +59,13 @@ const FileItem: React.FC<{ item: Item }> = ({ item }) => {
           className="cursor-pointer flex gap-2 mt-1"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <Folder /> {item.name}
+          <Folder fill="black" /> {item.name}
         </div>
       ) : (
-        <div className="mt-1">{item.name}</div>
+        <div className="flex gap-2 mt-1">
+          <File />
+          {item.name}
+        </div>
       )}
 
       {isOpen && item.items && item.items.length > 0 && (
