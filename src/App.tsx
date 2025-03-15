@@ -7,9 +7,13 @@ import RecursiveComponent from "./patternsExamples/RecursiveComponent";
 function App() {
   return (
     <>
+      {/* hooks */}
       <UseState />
       <UseEffect />
+
       {/* <Memo /> */}
+
+      {/* patterns */}
       {/* <RecursiveComponent /> */}
     </>
   );
