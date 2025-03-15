@@ -2,7 +2,7 @@ import "./App.css";
 import UseState from "./hooksExamples/UseState";
 import UseEffect from "./hooksExamples/UseEffect";
 import Memo from "./Memo/Memo";
-import FileQuestion from "./patternsExamples/FileQuestion";
+import RecursiveComponent from "./patternsExamples/RecursiveComponent";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <UseState />
       <UseEffect />
       {/* <Memo /> */}
-      {/* <FileQuestion /> */}
+      {/* <RecursiveComponent /> */}
     </>
   );
 }

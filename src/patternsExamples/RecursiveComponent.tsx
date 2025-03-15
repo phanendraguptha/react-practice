@@ -1,6 +1,10 @@
 import { Folder, File } from "lucide-react";
 import React, { useState } from "react";
 
+// Render a filesystem tree of arbitrary depth using a single recursive component.
+// Similar to sidebar in your code editor
+// Inspired from - https://buildui.com/recipes/recursive-filetree
+
 type Item = {
   id: string;
   name: string;
@@ -36,10 +40,10 @@ const data = [
 ];
 
 const MainComponent = () => {
-  return <FileQuestion data={data} />;
+  return <RecursiveComponent data={data} />;
 };
 
-const FileQuestion: React.FC<Props> = ({ data }) => {
+const RecursiveComponent: React.FC<Props> = ({ data }) => {
   return (
     <div>
       {data.map((item) => (
@@ -70,7 +74,7 @@ const FileItem: React.FC<{ item: Item }> = ({ item }) => {
 
       {isOpen && item.items && item.items.length > 0 && (
         <div className="ml-8">
-          <FileQuestion data={item.items} />
+          <RecursiveComponent data={item.items} />
         </div>
       )}
     </div>
@@ -80,7 +84,7 @@ const FileItem: React.FC<{ item: Item }> = ({ item }) => {
 export default MainComponent;
 
 // initial code
-// const FileQuestion: React.FC<Props> = ({ data }) => {
+// const RecursiveComponent: React.FC<Props> = ({ data }) => {
 //   console.log(data, "here");
 //   const [isOpen, setIsOpen] = useState(false);
 //   return (
@@ -100,7 +104,7 @@ export default MainComponent;
 //               return (
 //                 <React.Fragment key={i.id}>
 //                   {i.isFolder ? (
-//                     <>{i?.items?.length && <FileQuestion data={[i]} />}</>
+//                     <>{i?.items?.length && <RecursiveComponent data={[i]} />}</>
 //                   ) : (
 //                     <div>{i.name}</div>
 //                   )}
