@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // 📄 Read Docs
 // useEffect - https://react.dev/reference/react/useEffect
 // Definition - The `useEffect` hook in React is used to perform side effects such as data fetching, DOM manipulation, or subscriptions after a component renders. It takes two arguments: a function (effect) and an optional dependency array to control when the effect runs
+// Rules of Hooks - https://react.dev/reference/rules/rules-of-hooks
 
 /**
  * Pauses the execution of code for a specified amount of time.
