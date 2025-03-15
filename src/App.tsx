@@ -7,8 +7,8 @@ function App() {
   return (
     <>
       {/* <FileQuestion /> */}
-      {/* <UseEffect /> */}
-      <Memo />
+      <UseEffect />
+      {/* <Memo /> */}
     </>
   );
 }

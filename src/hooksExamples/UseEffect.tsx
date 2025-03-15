@@ -4,12 +4,12 @@ const MainComponent = () => {
   const [showComponent, setShowComponent] = useState(false);
 
   return (
-    <>
+    <div className="flex flex-col items-center gap-2 w-full h-screen justify-center">
       <button onClick={() => setShowComponent(!showComponent)}>
-        show/hide
+        {showComponent ? "Hide" : "Show"} Component
       </button>
       {showComponent && <UseEffect />}
-    </>
+    </div>
   );
 };
 
@@ -52,11 +52,11 @@ const UseEffect = () => {
     <>
       {loading && <div>loading..</div>}
       {!loading && (
-        <>
+        <ul className="list-disc">
           {users.map((user: any) => (
-            <div key={user.id}>{user.name}</div>
+            <li key={user.id}>{user.name}</li>
           ))}
-        </>
+        </ul>
       )}
     </>
   );
