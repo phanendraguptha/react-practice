@@ -1,40 +1,11 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 
-// 📄 Read README file
+import AccordionContextProvider, {
+  useAccordionContext,
+} from "./AccordionContextProvider";
 
-// Context to manage Accordion state
-const AccordionContext = createContext<{
-  openIndex: number | null;
-  toggle: (index: number) => void;
-}>({
-  openIndex: null,
-  toggle: () => {},
-});
-
-// create a provider component
-const AccordionContextProvider = ({ children }: { children: ReactNode }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const toggle = (index: number) =>
-    setOpenIndex(openIndex === index ? null : index);
-
-  return (
-    <AccordionContext.Provider value={{ openIndex, toggle }}>
-      {children}
-    </AccordionContext.Provider>
-  );
-};
-
-// create a consumer hook
-const useAccordionContext = () => {
-  const context = useContext(AccordionContext);
-
-  if (!context) {
-    throw new Error("wrap Accordion context with Accordion Provider");
-  }
-
-  return context;
-};
+// ⚠️ Read README file before proceeding further
 
 ////////////////////////////////////////////////////////////////////////////////
 // Accordion starts

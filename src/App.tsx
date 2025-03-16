@@ -5,7 +5,7 @@ import UseRef from "./hooksExamples/UseRef";
 import Memo from "./Memo/Memo";
 import RecursiveComponent from "./patternsExamples/RecursiveComponent";
 import ContextModule from "./patternsExamples/contextModule/ContextModule";
-import CompoundComponent from "./patternsExamples/CompoundComponent";
+import CompoundComponent from "./patternsExamples/compoundComponent/CompoundComponent";
 
 function App() {
   return (
