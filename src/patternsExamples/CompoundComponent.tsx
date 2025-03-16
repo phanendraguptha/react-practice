@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 
+// 📄 Read README file
+
 // Context to manage Accordion state
 const AccordionContext = createContext<{
   openIndex: number | null;
@@ -10,16 +12,40 @@ const AccordionContext = createContext<{
   toggle: () => {},
 });
 
-// Accordion Root Component
-const Accordion = ({ children }: { children: ReactNode }) => {
+// create a provider component
+const AccordionContextProvider = ({ children }: { children: ReactNode }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const toggle = (index: number) =>
     setOpenIndex(openIndex === index ? null : index);
 
   return (
     <AccordionContext.Provider value={{ openIndex, toggle }}>
-      <div className="max-w-md mx-auto mt-10 space-y-2">{children}</div>
+      {children}
     </AccordionContext.Provider>
+  );
+};
+
+// create a consumer hook
+const useAccordionContext = () => {
+  const context = useContext(AccordionContext);
+
+  if (!context) {
+    throw new Error("wrap Accordion context with Accordion Provider");
+  }
+
+  return context;
+};
+
+////////////////////////////////////////////////////////////////////////////////
+// Accordion starts
+////////////////////////////////////////////////////////////////////////////////
+
+// Accordion Root Component
+const Accordion = ({ children }: { children: ReactNode }) => {
+  return (
+    <AccordionContextProvider>
+      <div className="max-w-md mx-auto mt-10 space-y-2">{children}</div>
+    </AccordionContextProvider>
   );
 };
 
@@ -42,7 +68,7 @@ const AccordionHeader = ({
   index: number;
   children: ReactNode;
 }) => {
-  const { openIndex, toggle } = useContext(AccordionContext);
+  const { openIndex, toggle } = useAccordionContext();
   return (
     <button
       className="flex justify-between items-center w-full p-3"
@@ -66,7 +92,7 @@ const AccordionBody = ({
   index: number;
   children: ReactNode;
 }) => {
-  const { openIndex } = useContext(AccordionContext);
+  const { openIndex } = useAccordionContext();
 
   return openIndex === index ? <div className="p-3">{children}</div> : null;
 };
@@ -75,6 +101,10 @@ const AccordionBody = ({
 Accordion.Item = AccordionItem;
 Accordion.Header = AccordionHeader;
 Accordion.Body = AccordionBody;
+
+////////////////////////////////////////////////////////////////////////////////
+// Accordion ends
+////////////////////////////////////////////////////////////////////////////////
 
 export default function CompoundComponent() {
   return (
@@ -104,3 +134,88 @@ export default function CompoundComponent() {
     </Accordion>
   );
 }
+
+// initial draft
+// import { createContext, ReactNode, useContext, useState } from "react";
+
+// type AccordionContextType = {
+//   openIndex: number | null;
+//   toggleIndex: (index: number) => void;
+// };
+
+// const AccordionContext = createContext<AccordionContextType | undefined>(
+//   undefined
+// );
+
+// const useAccordionContext = () => {
+//   const context = useContext(AccordionContext);
+
+//   if (!context) {
+//     throw new Error("wrap Accordion context with Accordion Provider");
+//   }
+
+//   return context;
+// };
+
+// const Accordion = ({ children }: { children: ReactNode }) => {
+//   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+//   const toggleIndex = (index: number) => {
+//     setOpenIndex(openIndex === index ? null : index);
+//   };
+
+//   return (
+//     <AccordionContext.Provider value={{ openIndex, toggleIndex }}>
+//       <div className="space-y-2 mx-auto max-w-md mt-10">{children}</div>
+//     </AccordionContext.Provider>
+//   );
+// };
+
+// const AccordionItem = ({ children }: { children: ReactNode }) => {
+//   return <div>{children}</div>;
+// };
+
+// const AccordionHeader = ({
+//   index,
+//   children,
+// }: {
+//   index: number;
+//   children: ReactNode;
+// }) => {
+//   const { toggleIndex } = useAccordionContext();
+//   return (
+//     <button className="w-full" onClick={() => toggleIndex(index)}>
+//       {children}
+//     </button>
+//   );
+// };
+
+// const AccordionContent = ({
+//   index,
+//   children,
+// }: {
+//   index: number;
+//   children: ReactNode;
+// }) => {
+//   const { openIndex } = useAccordionContext();
+//   return <div>{index == openIndex ? <div>{children}</div> : null}</div>;
+// };
+
+// const CompoundComponent = () => {
+//   return (
+//     <div>
+//       <Accordion>
+//         <AccordionItem>
+//           <AccordionHeader index={0}>item 1</AccordionHeader>
+//           <AccordionContent index={0}>content</AccordionContent>
+//         </AccordionItem>
+//         <AccordionItem>
+//           <AccordionHeader index={1}>item 2</AccordionHeader>
+//           <AccordionContent index={1}>content</AccordionContent>
+//         </AccordionItem>
+//       </Accordion>
+//     </div>
+//   );
+// };
+
+// export default CompoundComponent;
