@@ -1,5 +1,4 @@
-import ThemeContextProvider from "./ThemeContextProvider";
-import { useTheme } from "./useTheme";
+import ThemeContextProvider, { useTheme } from "./ThemeContextProvider";
 
 // 📄 Read Docs
 // Definition - The Context Module Pattern in React is a design approach that simplifies the use of the Context API

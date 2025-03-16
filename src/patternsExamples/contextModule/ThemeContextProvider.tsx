@@ -1,4 +1,6 @@
-import { FC, ReactNode, createContext, useState } from "react";
+import { FC, ReactNode, createContext, useContext, useState } from "react";
+
+// This is a helper file for the ContextModule, However this is the pattern you are looking for
 
 type Theme = "light" | "dark";
 
@@ -24,5 +26,17 @@ const ThemeContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
   );
 };
 
+// 3. create a consumer hook
+const useTheme = () => {
+  const themeContext = useContext(ThemeContext);
+
+  // Throws error if anyone tries to use the useTheme without wrapping with the provider
+  if (!themeContext) {
+    throw new Error("useTheme must be within ThemeContextProvider");
+  }
+
+  return themeContext;
+};
+
 export default ThemeContextProvider;
-export { ThemeContext };
+export { useTheme };
