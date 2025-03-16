@@ -1,9 +1,9 @@
-import { useState } from "react";
-
 // 📄 Read Docs
 // lazy state initialization - https://kentcdodds.com/blog/use-state-lazy-initialization-and-function-updates
 // Read useState caveats - https://react.dev/reference/react/useState#setstate-caveats
 // Rules of Hooks - https://react.dev/reference/rules/rules-of-hooks
+
+import { useState } from "react";
 
 const UseState = () => {
   const [count, setCount] = useState(0);

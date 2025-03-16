@@ -1,9 +1,9 @@
-import { Folder, File } from "lucide-react";
-import React, { useState } from "react";
-
 // Render a filesystem tree of arbitrary depth using a single recursive component.
 // Similar to sidebar in your code editor
 // Inspired from - https://buildui.com/recipes/recursive-filetree
+
+import { Folder, File } from "lucide-react";
+import React, { useState } from "react";
 
 type Item = {
   id: string;

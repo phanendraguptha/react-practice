@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-
 // 📄 Read Docs
 // Read memo - https://react.dev/reference/react/memo
+
+import React, { useState } from "react";
 
 const MainComponent = () => {
   const [count, setCount] = useState(0);

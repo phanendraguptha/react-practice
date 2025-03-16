@@ -1,7 +1,7 @@
-import { createContext, ReactNode, useContext, useState } from "react";
-
 // This is a helper file for the CompoundComponent, this file follows context module pattern
 // ⚠️ Read README file before proceeding further
+
+import { createContext, ReactNode, useContext, useState } from "react";
 
 // Context to manage Accordion state
 const AccordionContext = createContext<{

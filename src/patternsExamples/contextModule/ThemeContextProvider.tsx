@@ -1,6 +1,6 @@
-import { FC, ReactNode, createContext, useContext, useState } from "react";
-
 // This is a helper file for the ContextModule, However this is the pattern you are looking for
+
+import { FC, ReactNode, createContext, useContext, useState } from "react";
 
 type Theme = "light" | "dark";
 

@@ -1,11 +1,11 @@
+// ⚠️ Read README file before proceeding further
+
 import { ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 
 import AccordionContextProvider, {
   useAccordionContext,
 } from "./AccordionContextProvider";
-
-// ⚠️ Read README file before proceeding further
 
 ////////////////////////////////////////////////////////////////////////////////
 // Accordion starts
