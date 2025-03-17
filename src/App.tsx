@@ -6,6 +6,7 @@ import Memo from "./Memo/Memo";
 import RecursiveComponent from "./patternsExamples/RecursiveComponent";
 import ContextModule from "./patternsExamples/contextModule/ContextModule";
 import CompoundComponent from "./patternsExamples/compoundComponent/CompoundComponent";
+import PropGetters from "./patternsExamples/propGetters/PropGetters";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       {/* patterns */}
       {/* <RecursiveComponent /> */}
       {/* <ContextModule /> */}
-      <CompoundComponent />
+      {/* <CompoundComponent /> */}
+      <PropGetters />
     </>
   );
 }
