@@ -8,7 +8,7 @@ import ContextModule from "./patternsExamples/contextModule/ContextModule";
 import CompoundComponent from "./patternsExamples/compoundComponent/CompoundComponent";
 import PropGetters from "./patternsExamples/propGetters/PropGetters";
 import UseReducer from "./hooksExamples/UseReducer";
-
+import StateReducer from "./patternsExamples/stateReducer/StateReducer";
 function App() {
   return (
     <>
@@ -16,7 +16,7 @@ function App() {
       {/* <UseState /> */}
       {/* <UseEffect /> */}
       {/* <UseRef /> */}
-      <UseReducer />
+      {/* <UseReducer /> */}
       {/* <Memo /> */}
 
       {/* patterns */}
@@ -24,6 +24,7 @@ function App() {
       {/* <ContextModule /> */}
       {/* <CompoundComponent /> */}
       {/* <PropGetters /> */}
+      <StateReducer />
     </>
   );
 }
