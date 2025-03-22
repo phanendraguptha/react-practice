@@ -28,6 +28,30 @@ const reducer = (state: StateType, action: ActionType) => {
   }
 };
 
+// ✅ It is always better to have a custom that exposes all the default actions
+// const useCount = () => {
+//   const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+//   const increment = () => {
+//     dispatch({ type: "increment" });
+//   };
+
+//   const decrement = () => {
+//     dispatch({ type: "decrement" });
+//   };
+
+//   const reset = () => {
+//     dispatch({ type: "reset" });
+//   };
+
+//   return {
+//     count: state.count,
+//     increment,
+//     decrement,
+//     reset,
+//   };
+// };
+
 const UseReducer = () => {
   // useReducer takes a reducer function and an initial state, and
   // returns the current state and a dispatch function for updating the state.
