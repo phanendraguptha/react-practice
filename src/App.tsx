@@ -7,6 +7,7 @@ import RecursiveComponent from "./patternsExamples/RecursiveComponent";
 import ContextModule from "./patternsExamples/contextModule/ContextModule";
 import CompoundComponent from "./patternsExamples/compoundComponent/CompoundComponent";
 import PropGetters from "./patternsExamples/propGetters/PropGetters";
+import UseReducer from "./hooksExamples/UseReducer";
 
 function App() {
   return (
@@ -15,14 +16,14 @@ function App() {
       {/* <UseState /> */}
       {/* <UseEffect /> */}
       {/* <UseRef /> */}
-
+      <UseReducer />
       {/* <Memo /> */}
 
       {/* patterns */}
       {/* <RecursiveComponent /> */}
       {/* <ContextModule /> */}
       {/* <CompoundComponent /> */}
-      <PropGetters />
+      {/* <PropGetters /> */}
     </>
   );
 }
