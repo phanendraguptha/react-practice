@@ -1,6 +1,7 @@
 import "./App.css";
 import UseState from "./hooksExamples/UseState";
 import UseEffect from "./hooksExamples/UseEffect";
+import UseLayoutEffect from "./hooksExamples/useLayoutEffect";
 import UseRef from "./hooksExamples/UseRef";
 import UseReducer from "./hooksExamples/UseReducer";
 import UseCallback from "./hooksExamples/UseCallback";
@@ -18,10 +19,11 @@ function App() {
       {/* hooks */}
       {/* <UseState /> */}
       {/* <UseEffect /> */}
+      <UseLayoutEffect />
       {/* <UseRef /> */}
       {/* <UseReducer /> */}
       {/* <UseCallback /> */}
-      <UseMemo />
+      {/* <UseMemo /> */}
       {/* <Memo /> */}
 
       {/* patterns */}
