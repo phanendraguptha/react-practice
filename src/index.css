@@ -7,6 +7,10 @@ button {
            focus:outline-none focus:ring-2 focus:ring-lime-400 focus:ring-offset-2;
 }
 
+button:disabled{
+    @apply bg-lime-800 text-gray-300 cursor-not-allowed
+}
+
 input{
     @apply px-4 py-2 border-2 border-gray-300 rounded-md
 }
