@@ -5,7 +5,7 @@
 //              It provides a way to show immediate feedback to users while waiting for server operations.
 // Rules of Hooks - https://react.dev/reference/rules/rules-of-hooks
 
-import { useActionState, useOptimistic } from "react";
+import { useActionState, useOptimistic, useRef } from "react";
 
 // Type definition for our state
 type State = {
@@ -17,11 +17,11 @@ type State = {
 // This is a mock function that simulates an API call
 const updateNameInDB = async (name: string) => {
   // Simulate Error by uncommenting below code
-  //   await new Promise((_, reject) => {
-  //     setTimeout(() => {
-  //       reject(new Error("Failed to update name"));
-  //     }, 1500);
-  //   });
+  await new Promise((_, reject) => {
+    setTimeout(() => {
+      reject(new Error("Failed to update name"));
+    }, 1500);
+  });
 
   // Simulate network delay
   await new Promise((resolve) => {
@@ -34,6 +34,7 @@ const updateNameInDB = async (name: string) => {
 };
 
 const UseOptimistic = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   // Parameters:
   // 1. action: (prevState: State, formData: FormData) => Promise<State>
   //    - Function that handles the form submission
@@ -76,6 +77,8 @@ const UseOptimistic = () => {
     try {
       // ⚡ Immediately update UI with optimistic value
       setOptimisticName(formData.get("name")?.toString()!);
+      // Reset form
+      formRef.current?.reset();
       // Get new name from form data and update in DB
       const newName = await updateNameInDB(formData.get("name")?.toString()!);
       return { name: newName, error: null };
@@ -92,7 +95,7 @@ const UseOptimistic = () => {
     <div className="flex flex-col items-center gap-2 w-full h-screen justify-center">
       <h2 className="text-2xl font-bold">UseOptimistic Example</h2>
 
-      <form action={formAction}>
+      <form ref={formRef} action={formAction}>
         <p>Current user: {optimisticName}</p>
 
         {/* {isPending && <p>loading...</p>} */}
